@@ -28,35 +28,6 @@ if (isset($_REQUEST['btn1'])){
     else{
         showCalcForm();
         }
-
-
-
-
-
-    function showCalcForm(){
-    $aa=0;
-    $bb=0;
-    if (isset($_COOKIE['a'])){
-        $aa=$_COOKIE['a'];
-    }
-    if (isset($_COOKIE['b'])){
-        $bb=$_COOKIE['b'];
-    }
-    echo '<form action="" method="post">
-        <p>Введите первое число &nbsp;<input type="number" name="a" value="'.$aa.'"></p>
-        <p>Введите второе число &nbsp;<input type="number" name="b" value="'.$bb.'"></p>
-        <p>выберите действие : &nbsp;
-            <select name="act" id="">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-            </select>
-        </p>
-        <p><input type="submit" name="btn1" value="ok"></p>
-    </form>';
-
-    }
 ?>
 
 
