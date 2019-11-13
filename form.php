@@ -11,14 +11,18 @@
 
 
 <?php
+$a=0;
+$b=0;
 if (isset($_REQUEST['btn1'])){
     $a = (int)($_REQUEST['a']);
+    setcookie("a",$a);
     $b = (int)($_REQUEST['b']);
+    setcookie("b",$b);
     $act = htmlspecialchars($_REQUEST['act']);
 
     calc($a, $b, $act);}
     else{
-    showCalcForm();
+        showCalcForm();
         }
 
     function calc($a, $b, $act){
@@ -41,11 +45,20 @@ if (isset($_REQUEST['btn1'])){
                 break;
             default :echo "Чтото пошло не так )))";
         }
+        echo '<p><a href="form.php">Вернутся к калькулятору</a></p>';
     }
     function showCalcForm(){
+    $aa=0;
+    $bb=0;
+    if (isset($_COOKIE['a'])){
+        $aa=$_COOKIE['a'];
+    }
+    if (isset($_COOKIE['b'])){
+        $bb=$_COOKIE['b'];
+    }
     echo '<form action="" method="post">
-        <p>Введите первое число &nbsp;<input type="number" name="a"></p>
-        <p>Введите второе число &nbsp;<input type="number" name="b"></p>
+        <p>Введите первое число &nbsp;<input type="number" name="a" value="'.$aa.'"></p>
+        <p>Введите второе число &nbsp;<input type="number" name="b" value="'.$bb.'"></p>
         <p>выберите действие : &nbsp;
             <select name="act" id="">
                 <option value="+">+</option>
@@ -56,6 +69,7 @@ if (isset($_REQUEST['btn1'])){
         </p>
         <p><input type="submit" name="btn1" value="ok"></p>
     </form>';
+
     }
 ?>
 
