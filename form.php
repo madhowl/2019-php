@@ -21,36 +21,18 @@ if (isset($_REQUEST['btn1'])){
     setcookie("b",$b);
     $act = htmlspecialchars($_REQUEST['act']);
 
-    calc($a, $b, $act);}
+    $message  = calc($a, $b, $act);
+    showAlert($message);
+    goUri('form.php');
+}
     else{
         showCalcForm();
         }
 
-    function calc($a, $b, $act){
-        $str='';
-        switch ($act){
-            case '+':
-                $str= "$a + $b = ";
-                $str.=$a + $b;
-                break;
-            case '-':
-                $str= "$a - $b = ";
-                $str.=$a-$b;
-                break;
-            case '*':
-                $str= "$a * $b = ";
-                $str.=$a*$b;
-                break;
-            case '/':
-                $str= "$a / $b = ";
-                $str.=$a/$b;
-                break;
-            default :$str=  "Чтото пошло не так )))";
-        }
-        showAlert($str);
-        //echo '<p><a href="form.php">Вернутся к калькулятору</a></p>';
-        goUri('form.php');
-    }
+
+
+
+
     function showCalcForm(){
     $aa=0;
     $bb=0;

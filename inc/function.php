@@ -8,3 +8,26 @@ function showAlert($text){
     alert( \''.$text.'\' );
 </script>';
 }
+function calc($a, $b, $act){
+    $str="";
+    switch ($act){
+        case '+':
+            $str= "$a + $b = ";
+            $str.=$a + $b;
+            break;
+        case '-':
+            $str= "$a - $b = ";
+            $str.=$a-$b;
+            break;
+        case '*':
+            $str= "$a * $b = ";
+            $str.=$a*$b;
+            break;
+        case '/':
+            $str= "$a / $b = ";
+            $str.=$a/$b;
+            break;
+        default :$str=  "Чтото пошло не так )))";
+    }
+    return $str;
+}
