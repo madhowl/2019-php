@@ -11,6 +11,7 @@
 
 
 <?php
+require_once ("./inc/function.php");
 $a=0;
 $b=0;
 if (isset($_REQUEST['btn1'])){
@@ -26,26 +27,29 @@ if (isset($_REQUEST['btn1'])){
         }
 
     function calc($a, $b, $act){
+        $str='';
         switch ($act){
             case '+':
-                echo "$a + $b = ";
-                echo $a + $b;
+                $str= "$a + $b = ";
+                $str.=$a + $b;
                 break;
             case '-':
-                echo "$a - $b = ";
-                echo $a-$b;
+                $str= "$a - $b = ";
+                $str.=$a-$b;
                 break;
             case '*':
-                echo "$a * $b = ";
-                echo $a*$b;
+                $str= "$a * $b = ";
+                $str.=$a*$b;
                 break;
             case '/':
-                echo "$a / $b = ";
-                echo $a/$b;
+                $str= "$a / $b = ";
+                $str.=$a/$b;
                 break;
-            default :echo "Чтото пошло не так )))";
+            default :$str=  "Чтото пошло не так )))";
         }
-        echo '<p><a href="form.php">Вернутся к калькулятору</a></p>';
+        showAlert($str);
+        //echo '<p><a href="form.php">Вернутся к калькулятору</a></p>';
+        goUri('form.php');
     }
     function showCalcForm(){
     $aa=0;
